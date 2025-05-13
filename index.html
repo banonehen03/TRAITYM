@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="box">
+    <canvas id="pinkboard"></canvas>
+  </div>
+
+  <!-- Thêm audio -->
+  <audio id="bg-music" src="audio/music.mp3" loop></audio>
+
+  <!-- Tự động phát nhạc sau tương tác đầu tiên -->
+  <script>
+    document.addEventListener('click', () => {
+      const audio = document.getElementById('bg-music');
+      if (audio.paused) {
+        audio.play().catch((e) => {
+          console.warn('Không thể tự động phát nhạc:', e);
+        });
+      }
+    }, { once: true });
+  </script>
+
+  <!-- Script particles -->
+  <script src="script.js"></script>
+</body>
+</html>
